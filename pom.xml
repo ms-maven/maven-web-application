@@ -7,7 +7,7 @@
 	<packaging>war</packaging>
 	<version>2.4-snapshot</version>
 	
-	<name>maven-web-application<1/name>
+	<name>maven-web-application</name>
 
 	<description>Maven Web Project for Java Project</description>
 
