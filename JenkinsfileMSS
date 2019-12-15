@@ -1,4 +1,3 @@
-node('paytm-node'){
 //node('mss'){
 
   //http://JenkinsServerIPAddress:8080/pipeline-syntax/globals#currentBuild
@@ -18,21 +17,23 @@ node('paytm-node'){
         pollSCM('* * * * *')
     ])
   ])
-  
-  def mavenHome=tool name: "mavenv3.1.1.1", type: "maven"
+  //node("master")
+node
+{
+  def mavenHome=tool name: "mavenv3.6.2", type: "maven"
     
   stage('CheckouttheCode') {
-   git branch: 'master', credentialsId: '4d6512c4-c101-4f43-aac5-5860f5d9e20c', url: 'https://github.com/MithunTechnologiesDevOps/maven-web-application.git'  
+git branch: 'development', credentialsId: 'cf230b8c-f391-4eae-99c2-1f638a1de359', url: 'https://github.com/ms-maven/maven-web-application/'
  }
   /*
    stage('Checkout'){
      checkout scm
   }
   */
- 
+ }
  stage('Build')
  {
-  sh  "${mavenHome}/bin/mvn clean package"
+  sh "mvnpackage" ["${mavenHome}/bin/mvn clean package"]
  }
 
  /* 
